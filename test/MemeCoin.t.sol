@@ -1,23 +1,16 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import "forge-std/Test.sol";
-import "../src/MemeCoin.sol";
+import {Test} from "forge-std/Test.sol";
+import {MemeCoin} from "src/MemeCoin.sol";
 
-contract CounterTest is Test {
-    MemeCoin public counter;
+contract MemeCoinTest is Test {
+    MemeCoin public memecoin;
+
+    string public constant name = "MemeCoin";
+    string public constant symbol = "MEME";
+    uint8 public constant decimals = 18;
     function setUp() public {
-       counter = new MemeCoin();
-       counter.setNumber(0);
-    }
-
-    function testIncrement() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
-
-    function testSetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
+       memecoin = new MemeCoin(name, symbol, decimals);
     }
 }
