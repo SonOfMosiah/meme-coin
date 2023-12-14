@@ -9,8 +9,14 @@ contract MemeCoinTest is Test {
 
     string public constant name = "MemeCoin";
     string public constant symbol = "MEME";
-    uint8 public constant decimals = 18;
+
+    bool public taxEnabled = true;
+    uint256 public tax = 100;
+    uint256 public minTax = 100;
+    uint256 public maxTax = 1000;
+    address public taxDestination = address(0xdead);
+
     function setUp() public {
-       memecoin = new MemeCoin(name, symbol, decimals);
+       memecoin = new MemeCoin(name, symbol, taxEnabled, tax, minTax, maxTax, taxDestination, msg.sender);
     }
 }
