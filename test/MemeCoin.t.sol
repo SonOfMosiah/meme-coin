@@ -17,6 +17,6 @@ contract MemeCoinTest is Test {
     address public taxDestination = address(0xdead);
 
     function setUp() public {
-       memecoin = new MemeCoin(name, symbol, taxEnabled, tax, minTax, maxTax, taxDestination, msg.sender);
+       memecoin = new MemeCoin(name, symbol, taxEnabled, tax, minTax, maxTax, taxDestination, 1_000, 1_000_000_000 * 1 ether, msg.sender);
     }
 }
